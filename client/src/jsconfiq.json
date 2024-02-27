@@ -1,0 +1,6 @@
+{
+    "copailerOptions":{
+        "baseUrl":"src"
+    },
+    "include":["src"]
+}
