@@ -41,7 +41,7 @@ export const register = async (req,res)=>{
 };
 
 /* logging in  */
-export const login = async (res,req)=>{
+export const login = async (req,res)=>{
     try {
         const {email, password } = req.body
         const user = await User.findOne({email: email}) 
@@ -55,7 +55,7 @@ export const login = async (res,req)=>{
         res.status(200).json({token, user})
         
     } catch (error) {
-        res.status(500).json({error: err.message})
+        res.status(500).json({error: error.message})
 
     }
 }
