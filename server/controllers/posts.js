@@ -9,7 +9,7 @@ export const createPost = async (req,res) => {
         const newPost = new Post({
             userId,
             firstName: user.firstName,
-            laastName: user.lastName,
+            lastName: user.lastName,
             location: user.location,
             description,
             userPicturePath: user.picturePath,
@@ -53,11 +53,11 @@ export const likePost = async (req,res)=>{
         const {id} = req.params;
         const {userId} = req.body;
         const post = await Post.findById(id)
-        const isLiked = post.like.get(userId);
+        const isLiked = post.likes.get(userId);
         if(isLiked){
             post.likes.delete(userId)
         }else{
-            post.like.set(userId, true)
+            post.likes.set(userId, true)
         }
 
         const updatedPost = await Post.findByIdAndUpdate(

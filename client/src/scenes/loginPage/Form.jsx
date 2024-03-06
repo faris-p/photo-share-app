@@ -183,7 +183,7 @@ const Form = () => {
                                             setFieldValue("picture", acceptedFiles[0])}>
                                         {({ getRootProps, getInputProps }) => (
                                             <Box {...getRootProps()}
-                                                border={`2px dashed &{palette.primary.main}`}
+                                                border={`2px dashed ${palette.primary.main}`}
                                                 p="1rem"
                                                 sx={{ "&:hover": { cursor: "pointer" } }}>
 

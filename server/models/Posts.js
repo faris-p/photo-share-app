@@ -21,7 +21,7 @@ const postSchema = mongoose.Schema(
         likes: {type:Map,of:Boolean},
         comments: {type:Array,
         default:[]}
-    },{timetamps: true}
+    },{timestamps: true}
 )
 
 const Post = mongoose.model("Post",postSchema)

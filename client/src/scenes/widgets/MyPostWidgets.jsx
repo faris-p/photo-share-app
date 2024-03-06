@@ -24,7 +24,7 @@ import FlexBetween from '../../components/FluxBetWeen';
 import UserImage from '../../components/UserImage';
 import WidgetWrapper from '../../components/WidgetWrapper';
 import { useState } from 'react';
-import { UseDispatch, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setPosts } from "../../state"
 
 
@@ -56,7 +56,7 @@ const MyPostWidgets = ({ picturePath }) => {
             body: formData,
         })
         const posts = await response.json()
-        dispatch(setPost({ posts }));
+        dispatch(setPosts( {posts} ));
         setImage(null);
         setPost("")
     }
@@ -126,7 +126,7 @@ const MyPostWidgets = ({ picturePath }) => {
             <Divider sx={{margin:"1.25rem 0"}} />
 
             <FlexBetween>
-                <FlexBetween gap="0.25rem" onClick={()=> setImage(!isImage)}>
+                <FlexBetween gap="0.25rem" onClick={()=> setIsImage(!isImage)}>
                     <ImageOutlined sx={{color:mediumMain}} />
                     <Typography
                     color={mediumMain}
