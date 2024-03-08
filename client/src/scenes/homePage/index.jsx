@@ -6,12 +6,24 @@ import UserWidget from '../widgets/Userwidget'
 import MyPostWidgets from '../widgets/MyPostWidgets'
 import PostsWidget from '../widgets/PostsWidget'
 import AdvertWidget from '../widgets/AdvertWidgets'
+import FriendsListWidget from '../widgets/FriendListWidget'
 
 
 function HomePage() {
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)")
   const {_id, picturePath } = useSelector((state)=>state.user)
+  const button = document.querySelector("button")
+
+    if (button) {
+    if (window.pageYOffset > 20) {
+      button.style.display = 'block';
+    } else {
+      button.style.display = 'none';
+    }
+  }
+  
   return (
+    <>
     <Box>
       <Navbar />
       <Box
@@ -32,12 +44,36 @@ function HomePage() {
         </Box>
         {isNonMobileScreens && <Box flexBasis="26%">
           <AdvertWidget />
+          <Box m="2rem 0" />
+          <FriendsListWidget userId={_id} />
         </Box>
         }
       </Box>
+      <button  
+        onClick={() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        style={{
+          position: "sticky",
+          bottom: "30px",
+          left: "1400px", 
+          display: "flex",
+          alignItems: "end",
+          border:"none",
+          borderRadius:"40px",
+          color:"white",
+          background:"rgb(66,209,245)",
+          padding:"10px"
+        }}
+      >
+        Top
+      </button>
   
     </Box>
+        
+      </>
   )
 }
+
 
 export default HomePage

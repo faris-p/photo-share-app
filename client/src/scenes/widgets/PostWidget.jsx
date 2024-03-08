@@ -27,7 +27,7 @@ import {
         const dispatch = useDispatch()
         const token = useSelector(state=>state.token)
         const loggedInUserId = useSelector((state)=>state.user._id);
-        const isLiked = true;
+        const isLiked = false;
         const likeCount = 56;
        
         const {palette} = useTheme();
